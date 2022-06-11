@@ -26,5 +26,14 @@ def inorderTraversal(rootnode):
         print(rootnode.data)
         inorderTraversal(rootnode.rightchild)
 
+def postorderTraversal(rootnode):
+    if not rootnode:
+        return 
+    else:
+        postorderTraversal(rootnode.leftchild)
+        postorderTraversal(rootnode.rightchild)
+        print(rootnode.data)
+
 #preorderTraversal(new1)
 #inorderTraversal(new1)
+postorderTraversal(new1)
