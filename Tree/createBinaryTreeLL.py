@@ -18,4 +18,13 @@ def preorderTraversal(rootnode):
         preorderTraversal(rootnode.leftchild)
         preorderTraversal(rootnode.rightchild)
 
-preorderTraversal(new1)
+def inorderTraversal(rootnode):
+    if not rootnode:
+        return
+    else:
+        inorderTraversal(rootnode.leftchild)
+        print(rootnode.data)
+        inorderTraversal(rootnode.rightchild)
+
+#preorderTraversal(new1)
+#inorderTraversal(new1)
