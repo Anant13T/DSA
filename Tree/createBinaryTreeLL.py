@@ -36,4 +36,4 @@ def postorderTraversal(rootnode):
 
 #preorderTraversal(new1)
 #inorderTraversal(new1)
-postorderTraversal(new1)
+#postorderTraversal(new1)
