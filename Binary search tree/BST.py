@@ -19,6 +19,8 @@ class BSTNode:
                 rootNode.rightchild=BSTNode(nodevalue)
             else:
                 insert(rootNode.rightchild.nodevalue)
+    
+
 
 n1=BSTNode(None)
 n1.insertNode(n1,70)
