@@ -1,3 +1,4 @@
+from logging import root
 from numpy import insert
 
 class BSTNode:
@@ -6,22 +7,30 @@ class BSTNode:
         self.leftchild=None
         self.rightchild=None
 
-    def insertNode(self,rootNode,nodevalue):
-        if rootNode.data==None:
-            rootNode.data=nodevalue
-        elif nodevalue<=rootNode.data:
-            if rootNode.leftchild==None:
-                rootNode.leftchild=BSTNode(nodevalue)
-            else:
-                insert(rootNode.leftchild.nodevalue)
+def insertNode(rootNode,nodevalue):
+    if rootNode.data==None:
+        rootNode.data=nodevalue
+    elif nodevalue<=rootNode.data:
+        if rootNode.leftchild is None:
+            rootNode.leftchild=BSTNode(nodevalue)
         else:
-            if rootNode.rightchild==None:
-                rootNode.rightchild=BSTNode(nodevalue)
-            else:
-                insert(rootNode.rightchild.nodevalue)
+            insertNode(rootNode.leftchild,nodevalue)
+    else:
+        if rootNode.rightchild is None:
+            rootNode.rightchild=BSTNode(nodevalue)
+        else:
+            insertNode(rootNode.rightchild,nodevalue)
     
-
+def preorder(rootnode):
+    if not rootnode:
+        return
+    print(rootnode.data)
+    preorder(rootnode.leftchild)
+    preorder(rootnode.rightchild)
 
 n1=BSTNode(None)
-n1.insertNode(n1,70)
-n1.insertNode(n1,25)
+insertNode(n1,70)
+insertNode(n1,25)
+insertNode(n1,26)
+insertNode(n1,77)
+preorder(n1)
