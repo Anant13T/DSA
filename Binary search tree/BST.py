@@ -35,6 +35,13 @@ def inorder(rootnode):
     print(rootnode.data)
     inorder(rootnode.rightchild)
 
+def postorder(rootnode):
+    if not rootnode:
+        return
+    postorder(rootnode.leftchild)
+    postorder(rootnode.rightchild)
+    print(rootnode.data)
+
 n1=BSTNode(None)
 insertNode(n1,70)
 insertNode(n1,25)
