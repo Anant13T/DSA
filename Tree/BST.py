@@ -4,4 +4,7 @@ class BSTNode:
         self.leftchild=None
         self.rightchild=None
 
-n1=BSTNode(88)
+    def insertNode(self,rootNode,nodevalue):
+        pass
+
+n1=BSTNode(None)
