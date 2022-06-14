@@ -42,6 +42,20 @@ def postorder(rootnode):
     postorder(rootnode.rightchild)
     print(rootnode.data)
 
+def search(rootnode,nodevalue):
+    if rootnode.data==nodevalue:
+        print("found")
+    elif rootnode.data>nodevalue:
+        if rootnode.leftchild.data==nodevalue:
+            print("found")
+        else:
+            search(rootnode.leftchild,nodevalue)
+    else:
+        if rootnode.rightchild.data==nodevalue:
+            print("found")
+        else:
+            search(rootnode.rightchild,nodevalue)
+
 n1=BSTNode(None)
 insertNode(n1,70)
 insertNode(n1,25)
