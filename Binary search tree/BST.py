@@ -28,9 +28,15 @@ def preorder(rootnode):
     preorder(rootnode.leftchild)
     preorder(rootnode.rightchild)
 
+def inorder(rootnode):
+    if not rootnode:
+        return
+    inorder(rootnode.leftchild)
+    print(rootnode.data)
+    inorder(rootnode.rightchild)
+
 n1=BSTNode(None)
 insertNode(n1,70)
 insertNode(n1,25)
 insertNode(n1,26)
 insertNode(n1,77)
-preorder(n1)
