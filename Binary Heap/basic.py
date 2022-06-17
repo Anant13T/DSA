@@ -16,4 +16,11 @@ def sizeofHeap(rootnode):
     else:
         return rootnode.heapSize
 
+def levelorderTraversal(rootnode):
+    if not rootnode:
+        return
+    else:
+        for i in range(1,rootnode.heapSize+1):
+            print(rootnode.customList[i])
+
 h1=Heap(5)
