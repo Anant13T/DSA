@@ -9,3 +9,11 @@ def peekofHeap(rootnode):
         return
     else:
         return rootnode.customList[1]
+
+def sizeofHeap(rootnode):
+    if not rootnode:
+        return
+    else:
+        return rootnode.heapSize
+
+h1=Heap(5)
