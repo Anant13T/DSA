@@ -33,6 +33,30 @@ class Trie:
         else:
             return False
 
+def deleteString(root,word,index):
+    ch=word[index]
+    currentNode=root.children.get(ch)
+    canThis=False
+    if len(currentNode.children)>1:
+        deleteString(currentNode,word,index+1)
+        return False
+    if index == len(word)-1:
+        if len(currentNode.children)>=1:
+            currentNode.endOfString=False
+            return False
+        else:
+            root.children.pop(ch)
+            return True
+    if currentNode.endOfString==True:
+        deleteString(currentNode,word,index+1)
+        return False
+    canThis=deleteString(currentNode,word,index+1)
+    if canThis==True:
+        root.children.pop(ch)
+        return True
+    else:
+        return False
+
 n1=Trie()
 n1.insertString("app")
 n1.insertString("appl")
