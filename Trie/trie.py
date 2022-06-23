@@ -1,3 +1,6 @@
+from jsonschema import RefResolutionError
+
+
 class TrieNode:
     def __init__(self):
         self.children={}
@@ -17,6 +20,18 @@ class Trie:
                 current.children.update({ch:node})
             current=node
         current.endOfString=True
+
+    def searchString(self,word):
+        currentNode=self.root
+        for i in word:
+            node=currentNode.children.get(i)
+            if node==None:
+                return False
+            currentNode=node
+        if currentNode.endOfString==True:
+            return True
+        else:
+            return False
 
 n1=Trie()
 n1.insertString("app")
