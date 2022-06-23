@@ -48,12 +48,30 @@ def insertNode(rootNode,nodevalue,heapType):
     heapifyTreeInsert(rootNode,rootNode.heapSize,heapType)
     return "inserted"
 
+def heapifyTreeExtract(rootNode,index,heapType):
+    leftIndex=index*2
+    rightIndex=index*2+1
+    swapChild=0
+    if rootNode.heapSize<leftIndex:
+        return
+    elif rootNode.heap==leftIndex:
+        if heapType=="Min":
+            if rootNode.customList[index]>rootNode.customList[leftIndex]:
+                temp=rootNode.customList[index]
+                rootNode.customList[index]=rootNode.customList[leftIndex]
+                rootNode.customList[leftIndex]=temp
+            return 
+        else:
+            if rootNode.customList[index]>rootNode.customList[leftIndex]:
+                temp=rootNode.customList[index]
+                rootNode.customList[index]=rootNode.customList[leftIndex]
+                rootNode.customList[leftIndex]=temp
+            return  
 
-
-h1=Heap(5)
-insertNode(h1,80,"Max")
-insertNode(h1,75,"Max")
-insertNode(h1,95,"Max")
-insertNode(h1,55,"Max")
-insertNode(h1,25,"Max")
-levelorderTraversal(h1)
+# h1=Heap(5)
+# insertNode(h1,80,"Max")
+# insertNode(h1,75,"Max")
+# insertNode(h1,95,"Max")
+# insertNode(h1,55,"Max")
+# insertNode(h1,25,"Max")
+# levelorderTraversal(h1)
