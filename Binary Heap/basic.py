@@ -67,6 +67,38 @@ def heapifyTreeExtract(rootNode,index,heapType):
                 rootNode.customList[index]=rootNode.customList[leftIndex]
                 rootNode.customList[leftIndex]=temp
             return  
+    else:
+        if heapType=="Min":
+            if rootNode.customList[leftIndex]<rootNode.customList[rightIndex]:
+                swapChild=leftIndex
+            else:
+                swapChild=rightIndex
+            if rootNode.customList[index]>rootNode.customList[swapChild]:
+                temp=rootNode.customList[index]
+                rootNode.customList[index]=rootNode.customList[swapChild]
+                rootNode.customList[swapChild]=temp
+        else:
+            if rootNode.customList[leftIndex]>rootNode.customList[rightIndex]:
+                swapChild=leftIndex
+            else:
+                swapChild=rightIndex
+            if rootNode.customList[index]<rootNode.customList[swapChild]:
+                temp=rootNode.customList[index]
+                rootNode.customList[index]=rootNode.customList[swapChild]
+                rootNode.customList[swapChild]=temp
+        heapifyTreeExtract(rootNode,swapChild,heapifyTreeInsert)
+
+def  extractNode(rootNode,heapType):
+    if rootNode.heapSize==0:
+        return
+    else:
+        extractedNode=rootNode.customList[1]
+        rootNode.customList[1]=rootNode.customList[rootNode.heapSize]
+        rootNode.customList[rootNode.heapSize]=None
+        rootNode.heapSize-=1
+        heapifyTreeExtract(rootNode,1,heapType)
+        return extractedNode
+
 
 # h1=Heap(5)
 # insertNode(h1,80,"Max")
