@@ -1,6 +1,3 @@
-from cv2 import cuda_BufferPool
-
-
 def partition(customList,low,high):
     i=low-1
     pivort=customList[high]
@@ -11,3 +8,12 @@ def partition(customList,low,high):
     customList[i+1],customList[high]=customList[high],customList[i+1]
     return (i+1)
 
+def quickSort(customList,low,high):
+    if low<high:
+        pi=partition(customList,low,high)
+        quickSort(customList,low,pi-1)
+        quickSort(customList,pi+1,high)
+
+c1=[9,7,8,3,45,56,76,12,1,87]
+quickSort(c1,0,9)
+print(c1)
