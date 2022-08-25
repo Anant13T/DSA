@@ -41,3 +41,30 @@ class DLL:
         np.next=temp.next
         temp.next.prev=np
         temp.next=np
+    
+    def DB(self):
+        temp=self.head
+        self.head=temp.next
+        temp.next=None
+        self.head.prev=None
+
+    def DE(self):
+        temp=self.head.next
+        before=self.head
+        while temp.next is not None:
+            temp=temp.next
+            before=before.next
+        temp.prev=None
+        before.next=None
+
+    def DP(self,pos):
+        temp=self.head.next
+        before=self.head
+        for i in range(1,pos-1):
+            temp=temp.next
+            before=before.next
+        before.next=temp.next
+        temp.next.prev=before
+        temp.next=None
+        temp.prev=None
+        pass
